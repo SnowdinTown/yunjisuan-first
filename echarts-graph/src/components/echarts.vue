@@ -22,7 +22,61 @@ export default {
   },
   data() {
     return {
-      colors: ['#B0C4DE']
+      list: [
+        "kotlin\nandroid-library\nanimation\nlibrary\nmaterial-design\nios\nmaterial\nhacktoberfest\nmobile\nrecyclerview\n",
+        "javascript\ncpp\nphp\nc\nruby\nlinux\ngo\ngolang\nandroid\nleetcode\n",
+        "python\n" +
+        "cpp\n" +
+        "c\n" +
+        "ruby\n" +
+        "typescript\n" +
+        "php\n" +
+        "go\n" +
+        "csharp\n" +
+        "nodejs\n" +
+        "golang\n",
+        "android\n" +
+        "minecraft\n" +
+        "kotlin\n" +
+        "forge\n" +
+        "bukkit\n" +
+        "python\n" +
+        "reactive\n" +
+        "scala\n" +
+        "gradle\n" +
+        "javascript\n",
+        "android\n" +
+        "hacktoberfest\n" +
+        "android-library\n" +
+        "kotlin-android\n" +
+        "groovy\n" +
+        "scala\n" +
+        "jvm\n" +
+        "mobile\n" +
+        "rest-api\n" +
+        "animation\n",
+        "spring-boot\n" +
+        "redis\n" +
+        "spring-cloud\n" +
+        "springboot\n" +
+        "mybatis\n" +
+        "mysql\n" +
+        "microservices\n" +
+        "framework\n" +
+        "jvm\n" +
+        "ddd\n" +
+        "interview\n",
+        "spring\n" +
+        "spring-cloud\n" +
+        "mybatis\n" +
+        "microservices\n" +
+        "redis\n" +
+        "springcloud\n" +
+        "docker\n" +
+        "springboot\n" +
+        "demo\n" +
+        "cloud-native\n"
+      ]
     }
   },
   created() {
@@ -37,6 +91,10 @@ export default {
       // console.log("data----", this.nodes, "\nlink-----", this.links);
       var myChart = echarts.init(document.getElementById("echarts"));
       const option = {
+        title: {
+          text: this.list[this.index], // 系列名称，用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
+          fontSize: 22
+        },
         color: [
           '#FFC0CB'
         ],
@@ -58,8 +116,7 @@ export default {
           name: this.item,
           type: 'graph',
           layout: 'force', // none,force,circular
-          // layout: 'circular',
-          zoom: 15,
+          zoom: 20,
           cursor: 'pointer',
           symbolSize: 5,
           roam: true, // 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移,可以设置成 'scale' 或者 'move'。设置成 true 为都开启
@@ -76,7 +133,7 @@ export default {
             position: 'right'
           },
           edgeLabel: {
-            show: true,
+            show: false,
             fontSize: 20,
             fontWeight: 300,
             opacity: 0.4,

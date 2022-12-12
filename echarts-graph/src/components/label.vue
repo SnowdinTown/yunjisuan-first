@@ -5,6 +5,7 @@
                :key="index"
                @click="go(index)"
                style="cursor: pointer">
+<!--               @dblclick="dbgo(index)"-->
       {{ item }}
     </el-button>
   </div>
@@ -31,7 +32,7 @@ export default {
   methods: {
     go(index) {
       this.$router.push({name: 'graph', query: {index: index}, params: {item: this.label[index]}});
-    }
+    },
   }
 
 }

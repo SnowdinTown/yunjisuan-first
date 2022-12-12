@@ -66,7 +66,6 @@ export default {
             source: records[i]._fields[0].segments[0].start.properties.name,
             target: records[i]._fields[0].segments[0].end.properties.name,
             // value: Number(records[i]._fields[0].segments[0].relationship.properties.weight),
-            value: '',
             lineStyle: {
               width: Number((Math.pow(records[i]._fields[0].segments[0].relationship.properties.weight, 3) + 13)/10)
             }
