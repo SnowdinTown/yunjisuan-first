@@ -42,14 +42,16 @@ def startSpark(language):
                 delList.append(topicList[j])
             elif res == 2:
                 delList.append(topicList[i])
-    for i in range(0, len(delList) - 1):
+    for i in range(0, len(delList)):
         topicList.remove(delList[i])
-    for i in range(1, len(topicList) - 1):
+    for i in range(1, len(topicList)):
         projects = []
+        print(topicList[i])
         temp = projectDF.filter(projectDF["topic"] == topicList[i])
         # temp.show()
         for p in temp.collect():
             projects.append(p["name"])
+        graph.create(language, topicList[i], projects, df, sqlContext)
     # temp = projectDF.filter(projectDF["topic"] == "spring-boot")
     # tt = []
     # for t in temp.collect():
